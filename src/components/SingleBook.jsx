@@ -10,7 +10,11 @@ class SingleBook extends Component {
   render() {
     return (
       <Col>
-        <Card onClick={() => this.setState({ selected: !this.state.selected })} className="book-cover d-flex flex-column" style={{ width: "18rem" }}>
+        <Card
+          onClick={() => this.setState({ selected: !this.state.selected })}
+          className="book-cover d-flex flex-column"
+          style={{ borderWidth: 2, borderStyle: "solid", borderColor: this.state.selected ? "red" : "grey" }}
+        >
           {/* mi salvo lo stato opposto dfi quello che trova, con !this.state.selected  */}
           <Card.Img variant="top" src={this.props.book.img} onClick={() => this.setState({ selected: !this.state.selected })} />
           <Card.Body variant="secondary">
