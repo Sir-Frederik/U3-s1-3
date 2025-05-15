@@ -1,19 +1,33 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, FormControl, Row } from "react-bootstrap";
 
 import SingleBook from "./SingleBook";
+import { Component } from "react";
 
-const BookList = (props) => {
-  return (
-    <Container>
-      <h2> Libri Disponibili </h2>
+class BookList extends Component {
+  state = {
+    searchQuery: "",
+  };
+  render() {
+    return (
+      <Container>
+        <h2> Libri Disponibili </h2>
 
-      <Row xs={1} sm={2} md={3} lg={4} xxl={6} className="g-*">
-        {props.genre.map((book) => (
-          <SingleBook key={book.asin} book={book} />
-        ))}
-      </Row>
-    </Container>
-  );
-};
+        <FormControl
+          className="w-50 my-4"
+          type="text"
+          placeholder="Cerca un titolo di un libro"
+          value={this.state.searchQuery}
+          onChange={(e) => this.setState({ searchQuery: e.target.value })}
+        />
+
+        <Row xs={1} sm={2} md={3} lg={4} xxl={6} className="g-*">
+          {this.props.genre.map((book) => (
+            <SingleBook key={book.asin} book={book} />
+          ))}
+        </Row>
+      </Container>
+    );
+  }
+}
 
 export default BookList;
