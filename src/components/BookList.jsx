@@ -7,8 +7,9 @@ import romance from "../data/romance.json";
 import horror from "../data/horror.json";
 import { Col, Container, Row } from "react-bootstrap";
 import { Component } from "react";
+import SingleBook from "./SingleBook";
 
-class BookList extends Component {
+class AllTheBooks extends Component {
   state = {
     collection: scifi,
   };
@@ -35,17 +36,7 @@ class BookList extends Component {
         </div>
         <Row xs={1} sm={2} md={3} lg={4} xxl={6} className="g-*">
           {this.state.collection.map((book) => (
-            <Col key={book.asin}>
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={book.img} />
-                <Card.Body>
-                  <Card.Title>{book.title}</Card.Title>
-                  <Card.Text>{book.category}</Card.Text>
-                  <Card.Text>{book.price}$</Card.Text>
-                  <Button variant="primary">Acquista</Button>
-                </Card.Body>
-              </Card>
-            </Col>
+            <SingleBook key={book.asin} book={book} />
           ))}
         </Row>
       </Container>
@@ -53,4 +44,4 @@ class BookList extends Component {
   }
 }
 
-export default BookList;
+export default AllTheBooks;
