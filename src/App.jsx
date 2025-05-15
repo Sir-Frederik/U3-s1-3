@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <>
         <MyNav brandName="Libreria Alì BlaBla"></MyNav>
-        <div className="d-flex gap-1 my-2">
+        <div className=" container d-flex gap-1 my-3 ">
           <Button variant="primary" onClick={() => this.setState({ collection: scifi })}>
             Scifi
           </Button>
